@@ -11,7 +11,7 @@
 )
 
 (:init
-    (at robot posR)
+    (at ur3a posR)
     (in peon1 pos11)
     (in rey1 pos21)
     (in caballo1 pos31)
