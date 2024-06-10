@@ -10,12 +10,9 @@
 )
 
 (:predicates 
-       ;(at ?rob - robot ?loc - location)
        (handEmpty ?rob - robot)
        (holding ?rob - robot ?p - pieza)
        (in ?p - pieza ?c - casilla)
-       ; ---
-       ; (occupied ?c - casilla ?p - pieza)
        (empty ?c - casilla)
        (turno ?color - color)
 )
@@ -35,13 +32,19 @@
 (:action place
        :parameters (?rob - robot ?p - pieza ?c - casilla ?color - color)
        :precondition (and (holding ?rob ?p) (empty ?c))
-       :effect (and (handEmpty ?rob) (not (holding ?rob ?p)) (in ?p ?c) (turno ?color))
+       :effect (and (handEmpty ?rob) (not (holding ?rob ?p)) (in ?p ?c))
+              ;(turno ?color)
 )
 
-(:action switch-turn
-       :parameters (?color - color)
-       :precondition (and (turno ?color))
-       :effect (and (not (turno ?color)) (turno (if (= ?color blancas) negras blancas)))
-)
-
+; (:action switch-turn-to-black
+;        :parameters ()
+;        :precondition (turno blancas)
+;        :effect (and (not (turno blancas)) (turno negras))
+; )
+  
+; (:action switch-turn-to-white
+;        :parameters ()
+;        :precondition (turno negras)
+;        :effect (and (not (turno negras)) (turno blancas))
+; )
 )

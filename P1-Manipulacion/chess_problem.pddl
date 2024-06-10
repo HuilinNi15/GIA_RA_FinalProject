@@ -12,7 +12,7 @@
     g1 g2 g3 g4 g5 g6 g7 g8
     h1 h2 h3 h4 h5 h6 h7 h8 - square
 
-    blancas negras - color
+    ; blancas negras - color
     
     pos11 pos12 pos21 pos22 pos31 pos32 posR - location
     peon1 - peon
@@ -23,7 +23,6 @@
 
 (:init
     ; Pos Inicial
-    ()
 
     (at ur3a posR)
     (in peon1 pos11)
