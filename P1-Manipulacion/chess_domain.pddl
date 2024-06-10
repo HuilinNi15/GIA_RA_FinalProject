@@ -6,7 +6,6 @@
        peon rey caballo - pieza
        casilla color - objects
 	robot
-       ; location
 )
 
 (:predicates 
@@ -15,6 +14,11 @@
        (in ?p - pieza ?c - casilla)
        (empty ?c - casilla)
        (turno ?color - color)
+       (piecePlaced)
+)
+
+(:constants
+       blancas negras - color
 )
 
 (:action move
@@ -26,25 +30,22 @@
 (:action pick
        :parameters (?rob - robot ?p - pieza ?c - casilla)
        :precondition (and (handEmpty ?rob) (in ?p ?c))
-       :effect (and (holding ?rob ?p) (not (handEmpty ?rob)) (empty ?c))
+       :effect (and (holding ?rob ?p) (not (handEmpty ?rob)) (not (in ?p ?c)) (empty ?c))
 )
 
 (:action place
        :parameters (?rob - robot ?p - pieza ?c - casilla ?color - color)
-       :precondition (and (holding ?rob ?p) (empty ?c))
-       :effect (and (handEmpty ?rob) (not (holding ?rob ?p)) (in ?p ?c))
-              ;(turno ?color)
+       :precondition (and (holding ?rob ?p) (empty ?c) (not (piecePlaced)))
+       :effect (and (handEmpty ?rob) (not (holding ?rob ?p)) 
+              (in ?p ?c) (not (empty ?c)) (piecePlaced))
 )
 
-; (:action switch-turn-to-black
-;        :parameters ()
-;        :precondition (turno blancas)
-;        :effect (and (not (turno blancas)) (turno negras))
-; )
-  
-; (:action switch-turn-to-white
-;        :parameters ()
-;        :precondition (turno negras)
-;        :effect (and (not (turno negras)) (turno blancas))
-; )
+(:action switch-turn
+       :parameters ()
+       :precondition (or (turno blancas) (turno negras) (piecePlaced))
+       :effect (and 
+       (when (turno blancas) (and (not (turno blancas)) (turno negras)))
+       (when (turno negras) (and (not (turno negras)) (turno blancas)))
+       (not (piecePlaced)))
+)
 )
