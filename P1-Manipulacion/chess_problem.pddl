@@ -41,10 +41,10 @@
     (empty h1) (empty h2) (empty h3) (empty h4) (empty h5) (empty h6) (empty h7) (empty h8)
 
     ;; Turno Inicial
-    (turno blancas)
+    ; (turno blancas)
     
     ;; Estado Inicial de piecePlaced (false)
-    (not (piecePlaced))
+    ; (not (piecePlaced))
 )
 
 (:goal
