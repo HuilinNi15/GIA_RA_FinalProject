@@ -35,17 +35,19 @@
 
 (:action place
        :parameters (?rob - robot ?p - pieza ?c - casilla ?color - color)
-       :precondition (and (holding ?rob ?p) (empty ?c) (not (piecePlaced)))
+       :precondition (and (holding ?rob ?p) (empty ?c)) ; (not (piecePlaced))
        :effect (and (handEmpty ?rob) (not (holding ?rob ?p)) 
-              (in ?p ?c) (not (empty ?c)) (piecePlaced))
+              (in ?p ?c) (not (empty ?c)) 
+              ; (piecePlaced)
+       )
 )
 
-(:action switch-turn
-       :parameters ()
-       :precondition (or (turno blancas) (turno negras) (piecePlaced))
-       :effect (and 
-       (when (turno blancas) (and (not (turno blancas)) (turno negras)))
-       (when (turno negras) (and (not (turno negras)) (turno blancas)))
-       (not (piecePlaced)))
-)
+; (:action switch-turn
+;        :parameters ()
+;        :precondition (or (turno blancas) (turno negras) (piecePlaced))
+;        :effect (and 
+;        (when (turno blancas) (and (not (turno blancas)) (turno negras)))
+;        (when (turno negras) (and (not (turno negras)) (turno blancas)))
+;        (not (piecePlaced)))
+; )
 )
