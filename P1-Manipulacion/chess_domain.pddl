@@ -4,8 +4,7 @@
 
 (:types 
        peon rey caballo - pieza
-       casilla color - objects
-       robot
+       casilla color robot
 )
 
 (:predicates 
