@@ -1,4 +1,4 @@
-(define (domain aaa)
+(define (domain chessmanipulation)
 
 (:requirements :adl :typing)
 
