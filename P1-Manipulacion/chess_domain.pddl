@@ -32,31 +32,31 @@
 
 (:action move_knight
        :parameters (?rob - robot ?p - caballo ?from - casilla ?to - casilla ?c1 - casilla ?c2 - casilla)
-       :precondition (and (holding ?rob ?p) 
-                            (empty ?to) 
-                            (on ?rob ?from) 
+       :precondition (and (on ?rob ?from)
+                            (holding ?rob ?p)   
                             (not (on ?rob ?to))
-                            ;; (not (moved))
-                            (or
-                            (and (up ?from ?c1) (up ?c1 ?c2) (left ?c2 ?to))  ;; up up left
-                            (and (up ?from ?c1) (up ?c1 ?c2) (left ?to ?c2)) ;; up up right
-                            (and (left ?c1 ?from) (left ?c2 ?c1) (up ?c2 ?to)) ;; right right up
-                            (and (left ?c1 ?from) (left ?c2 ?c1) (up ?to ?c2)) ;; right right down
-                            (and (up ?c1 ?from) (up ?c2 ?c1) (left ?to ?c2)) ;; down down right
-                            (and (up ?c1 ?from) (up ?c2 ?c1) (left ?c2 ?to)) ;; down down left
-                            (and (left ?from ?c1) (left ?c1 ?c2) (up ?to ?c2)) ;; left left down
-                            (and (left ?from ?c1) (left ?c1 ?c2) (up ?c2 ?to)) ;; left left up
-                            )
+                            (empty ?to)
+                            (not (moved))
+                            ; (or
+                            ; (and (up ?from ?c1) (up ?c1 ?c2) (left ?c2 ?to))  ;; up up left
+                            ; (and (up ?from ?c1) (up ?c1 ?c2) (left ?to ?c2)) ;; up up right
+                            ; (and (left ?c1 ?from) (left ?c2 ?c1) (up ?c2 ?to)) ;; right right up
+                            ; (and (left ?c1 ?from) (left ?c2 ?c1) (up ?to ?c2)) ;; right right down
+                            ; (and (up ?c1 ?from) (up ?c2 ?c1) (left ?to ?c2)) ;; down down right
+                            ; (and (up ?c1 ?from) (up ?c2 ?c1) (left ?c2 ?to)) ;; down down left
+                            ; (and (left ?from ?c1) (left ?c1 ?c2) (up ?to ?c2)) ;; left left down
+                            ; (and (left ?from ?c1) (left ?c1 ?c2) (up ?c2 ?to)) ;; left left up
+                            ; )
                      )
        :effect (and (on ?rob ?to) (not (on ?rob ?from)) (moved))
 )
 
 (:action move_pawn
        :parameters (?rob - robot ?p - peon ?from - casilla ?to - casilla)
-       :precondition (and (holding ?rob ?p)
+       :precondition (and (on ?rob ?from) 
+                            (holding ?rob ?p)
+                            (not (moved))
                             (empty ?to)
-                            ;; (not (moved))
-                            (on ?rob ?from)
                             (not (on ?rob ?to))
                             (or (and (color ?p white) (up ?from ?to)) (and (color ?p black) (up ?to ?from)))                 
                      )
@@ -64,10 +64,10 @@
 )
 
 (:action move_king
-       :parameters (?rob - robot ?p - pieza ?from - casilla ?to - casilla)
-       :precondition (and (holding ?rob ?p)
+       :parameters (?rob - robot ?p - rey ?from - casilla ?to - casilla)
+       :precondition (and (on ?rob ?from)
+                            (holding ?rob ?p)
                             (empty ?to) 
-                          (on ?rob ?from)
                           (not (on ?rob ?to))
                           (not (moved))
                           (or (left ?from ?to) (left ?to ?from)(up ?from ?to)(up ?to ?from)

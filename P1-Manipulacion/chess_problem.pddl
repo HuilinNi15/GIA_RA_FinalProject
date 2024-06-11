@@ -12,8 +12,9 @@
     g1 g2 g3 g4 g5 g6 g7 g8
     h1 h2 h3 h4 h5 h6 h7 h8 - casilla
     
-    peon_blanco1 peon_blanco2 rey_blanco caballo_blanco - pieza
-    peon_negro1 peon_negro2 rey_negro caballo_negro - pieza 
+    peon_blanco1 peon_blanco2 peon_negro1 peon_negro2 - peon
+    caballo_negro caballo_blanco - caballo
+    rey_blanco rey_negro - rey
     ur3a - robot
     
     white black - color
