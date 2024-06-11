@@ -20,11 +20,16 @@
 )
 
 (:init
+
+    ; Pos Inicial Robot 
+    (on ur3a a1)
+
     ; Pos Inicial Blancas
     (in peon_blanco1 f4)
     (in peon_blanco2 g3)
     (in rey_blanco b2)
     (in caballo_blanco f3)
+
     (color peon_blanco1 white)
     (color peon_blanco2 white)
     (color rey_blanco white)
@@ -35,6 +40,7 @@
     (in peon_negro2 b4)
     (in rey_negro g7)
     (in caballo_negro e7)
+
     (color peon_negro1 black)
     (color peon_negro2 black)
     (color rey_negro black)

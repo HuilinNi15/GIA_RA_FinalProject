@@ -15,14 +15,15 @@
        (turnWhite)
        (turnBlack)
        (color ?p - pieza ?color - color)
+       (on ?rob - robot ?c - casilla)
 )
 
 (:action move
-       :parameters (?p - pieza ?from - casilla ?to - casilla)
-       :precondition (and (in ?p ?from)
+       :parameters (?rob - robot ?p - pieza ?from - casilla ?to - casilla)
+       :precondition (and (on ?rob ?from) (not (on ?rob ?to))
                           (or (and (turnWhite) (color ?p white))
                               (and (turnBlack) (color ?p black))))
-       :effect (and (in ?p ?to) (not (in ?p ?from))
+       :effect (and (on ?rob ?to) (not (on ?rob ?from))
                     (not (turnWhite)) (not (turnBlack))
                     (when (color ?p white) (turnBlack))
                     (when (color ?p black) (turnWhite)))
@@ -30,7 +31,7 @@
 
 (:action pick
        :parameters (?rob - robot ?p - pieza ?c - casilla)
-       :precondition (and (handEmpty ?rob) (in ?p ?c)
+       :precondition (and (handEmpty ?rob) (in ?p ?c) (on ?rob ?c)
                           (or (and (turnWhite) (color ?p white))
                               (and (turnBlack) (color ?p black))))
        :effect (and (holding ?rob ?p)
@@ -41,7 +42,7 @@
 
 (:action place
        :parameters (?rob - robot ?p - pieza ?c - casilla)
-       :precondition (and (holding ?rob ?p) (empty ?c)
+       :precondition (and (on ?rob ?c) (holding ?rob ?p) (empty ?c)
                           (or (and (turnWhite) (color ?p white))
                               (and (turnBlack) (color ?p black))))
        :effect (and (handEmpty ?rob)
@@ -51,6 +52,4 @@
               (when (color ?p white) (turnBlack))
               (when (color ?p black) (turnWhite)))
 )
-
 )
-
