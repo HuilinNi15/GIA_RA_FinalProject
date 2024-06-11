@@ -12,8 +12,8 @@
     g1 g2 g3 g4 g5 g6 g7 g8
     h1 h2 h3 h4 h5 h6 h7 h8 - casilla
     
-    peon_blanco1 peon_blanco2 peon_negro1 peon_negro2 - peon
-    caballo_negro caballo_blanco - caballo
+    ; peon_blanco1 peon_blanco2 peon_negro1 peon_negro2 - peon
+    ; caballo_negro caballo_blanco - caballo
     rey_blanco rey_negro - rey
     ur3a - robot
     
@@ -27,27 +27,31 @@
     (handEmpty ur3a)
 
     ; Pos Inicial Blancas
-    (in peon_blanco1 f4)
-    (in peon_blanco2 g3)
+    ; (in peon_blanco1 f4)
+    ; (in peon_blanco2 g3)
     (in rey_blanco b2)
-    (in caballo_blanco f3)
+    ; (in caballo_blanco f3)
 
-    (color peon_blanco1 white)
-    (color peon_blanco2 white)
+    ; (color peon_blanco1 white)
+    ; (color peon_blanco2 white)
     (color rey_blanco white)
-    (color caballo_blanco white)
+    ; (color caballo_blanco white)
 
     ; Pos Inicial Negras
-    (in peon_negro1 a5)
-    (in peon_negro2 b4)
+    ; (in peon_negro1 a5)
+    ; (in peon_negro2 b4)
     (in rey_negro g7)
-    (in caballo_negro e7)
+    ; (in caballo_negro e7)
 
-    (color peon_negro1 black)
-    (color peon_negro2 black)
+    ; (color peon_negro1 black)
+    ; (color peon_negro2 black)
     (color rey_negro black)
-    (color caballo_negro black)
-    
+    ; (color caballo_negro black)
+
+    (empty f3) (empty e7)  ;; borrar quan posem caballs
+    (empty f4) (empty g3) (empty a5) (empty b4) ;; borrar si posem peons
+
+
     ;; Casillas Vacías Iniciales
     (empty a1) (empty a2) (empty a3) (empty a4) (empty a6) (empty a7) (empty a8)
     (empty b1) (empty b3) (empty b5) (empty b6) (empty b7) (empty b8)
@@ -89,16 +93,18 @@
 (:goal
     (and
         ; Pos Final Blancas
-        (in peon_blanco1 f4)
-        (in peon_blanco2 g3)
-        (in rey_blanco a2)
-        (in caballo_blanco e5)
+        ; (in peon_blanco1 f4)
+        ; (in peon_blanco2 g3)
+        ; (in rey_blanco a2)
+        ; (in caballo_blanco e5)
 
         ; Pos Final Negras
-        (in peon_negro1 a4)
-        (in peon_negro2 b4)
-        (in rey_negro h6)
-        (in caballo_negro e7)
+        ; (in peon_negro1 a4)
+        ; (in peon_negro2 b4)
+        ; (in rey_negro h6)
+        ; (in caballo_negro e7)
+
+        (in rey_blanco d1) (in rey_negro h5) ;; per provar que el rei es mogui mes dun cop seguit
     )
 )
 )
