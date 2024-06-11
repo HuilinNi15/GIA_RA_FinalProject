@@ -23,6 +23,7 @@
 
     ; Pos Inicial Robot 
     (on ur3a a1)
+    (handEmpty ur3a)
 
     ; Pos Inicial Blancas
     (in peon_blanco1 f4)
