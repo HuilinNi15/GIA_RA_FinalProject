@@ -56,7 +56,31 @@
     (empty f1) (empty f2) (empty f5) (empty f6) (empty f7) (empty f8)
     (empty g1) (empty g2) (empty g4) (empty g5) (empty g6) (empty g8)
     (empty h1) (empty h2) (empty h3) (empty h4) (empty h5) (empty h6) (empty h7) (empty h8)
-    
+
+    ;; Posicion relativa Casillas 
+
+    ;; left
+    (left a1 b1) (left b1 c1) (left c1 d1) (left d1 e1) (left e1 f1) (left f1 g1) (left g1 h1)
+    (left a2 b2) (left b2 c2) (left c2 d2) (left d2 e2) (left e2 f2) (left f2 g2) (left g2 h2)
+    (left a3 b3) (left b3 c3) (left c3 d3) (left d3 e3) (left e3 f3) (left f3 g3) (left g3 h3)
+    (left a4 b4) (left b4 c4) (left c4 d4) (left d4 e4) (left e4 f4) (left f4 g4) (left g4 h4)
+    (left a5 b5) (left b5 c5) (left c5 d5) (left d5 e5) (left e5 f5) (left f5 g5) (left g5 h5)
+    (left a6 b6) (left b6 c6) (left c6 d6) (left d6 e6) (left e6 f6) (left f6 g6) (left g6 h6)
+    (left a7 b7) (left b7 c7) (left c7 d7) (left d7 e7) (left e7 f7) (left f7 g7) (left g7 h7)
+    (left a8 b8) (left b8 c8) (left c8 d8) (left d8 e8) (left e8 f8) (left f8 g8) (left g8 h8)
+
+    ;; up
+    (up a8 a7) (up a7 a6) (up a6 a5) (up a5 a4) (up a4 a3) (up a3 a2) (up a2 a1)
+    (up b8 b7) (up b7 b6) (up b6 b5) (up b5 b4) (up b4 b3) (up b3 b2) (up b2 b1)
+    (up c8 c7) (up c7 c6) (up c6 c5) (up c5 c4) (up c4 c3) (up c3 c2) (up c2 c1)
+    (up d8 d7) (up d7 d6) (up d6 d5) (up d5 d4) (up d4 d3) (up d3 d2) (up d2 d1)
+    (up e8 e7) (up e7 e6) (up e6 e5) (up e5 e4) (up e4 e3) (up e3 e2) (up e2 e1)
+    (up f8 f7) (up f7 f6) (up f6 f5) (up f5 f4) (up f4 f3) (up f3 f2) (up f2 f1)
+    (up g8 g7) (up g7 g6) (up g6 g5) (up g5 g4) (up g4 g3) (up g3 g2) (up g2 g1)
+    (up h8 h7) (up h7 h6) (up h6 h5) (up h5 h4) (up h4 h3) (up h3 h2) (up h2 h1)
+
+
+
     ;; Turno inicial
     (turnWhite)
 )
