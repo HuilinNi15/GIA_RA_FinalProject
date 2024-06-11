@@ -45,8 +45,6 @@
 (:action place
        :parameters (?rob - robot ?p - pieza ?c - casilla)
        :precondition (and (on ?rob ?c) (holding ?rob ?p) (empty ?c))
-                     ;      (or (and (turnWhite) (color ?p white))
-                     ;          (and (turnBlack) (color ?p black))))
        :effect (and (handEmpty ?rob)
               (not (holding ?rob ?p)) 
               (in ?p ?c) (not (empty ?c))
