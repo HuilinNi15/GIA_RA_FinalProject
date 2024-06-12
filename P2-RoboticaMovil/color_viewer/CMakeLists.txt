@@ -8,7 +8,13 @@ project(color_viewer)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
+  nav_msgs
   rospy
+  sensor_msgs
+  turtlebot3_msgs
+  turtlebot3_navigation
+  move_base_msgs
 )
 
 ## System dependencies are found with CMake's conventions
