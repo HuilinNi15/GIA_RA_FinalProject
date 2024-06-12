@@ -12,8 +12,9 @@
     g1 g2 g3 g4 g5 g6 g7 g8
     h1 h2 h3 h4 h5 h6 h7 h8 - casilla
     
-    peon_blanco1 peon_blanco2 rey_blanco caballo_blanco - pieza
-    peon_negro1 peon_negro2 rey_negro caballo_negro - pieza 
+    peon_blanco1 peon_blanco2 peon_negro1 peon_negro2 - peon
+    rey_blanco rey_negro - rey 
+    caballo_blanco caballo_negro - caballo 
     ur3a - robot
     
     white black - color
@@ -21,7 +22,7 @@
 
 (:init
 
-    ; Pos Inicial Robot 
+    ; Pos Inicial Robot
     (on ur3a a1)
     (handEmpty ur3a)
 
@@ -31,10 +32,10 @@
     (in rey_blanco b2)
     (in caballo_blanco f3)
 
-    (color peon_blanco1 white)
-    (color peon_blanco2 white)
-    (color rey_blanco white)
-    (color caballo_blanco white)
+    (colorPieza peon_blanco1 white)
+    (colorPieza peon_blanco2 white)
+    (colorPieza rey_blanco white)
+    (colorPieza caballo_blanco white)
 
     ; Pos Inicial Negras
     (in peon_negro1 a5)
@@ -42,10 +43,10 @@
     (in rey_negro g7)
     (in caballo_negro e7)
 
-    (color peon_negro1 black)
-    (color peon_negro2 black)
-    (color rey_negro black)
-    (color caballo_negro black)
+    (colorPieza peon_negro1 black)
+    (colorPieza peon_negro2 black)
+    (colorPieza rey_negro black)
+    (colorPieza caballo_negro black)
     
     ;; Casillas Vacías Iniciales
     (empty a1) (empty a2) (empty a3) (empty a4) (empty a6) (empty a7) (empty a8)
@@ -90,7 +91,7 @@
         ; Pos Final Blancas
         (in peon_blanco1 f4)
         (in peon_blanco2 g3)
-        (in rey_blanco a2)
+        (in rey_blanco a2) 
         (in caballo_blanco e5)
 
         ; Pos Final Negras
