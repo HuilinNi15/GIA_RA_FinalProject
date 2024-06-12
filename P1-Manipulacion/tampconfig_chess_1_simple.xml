@@ -2,7 +2,7 @@
 <Config>
     <Problemfiles>
         <pddldomain name="ff-domains/chess_domain.pddl" />
-        <pddlproblem name="ff-domains/chess_problem" />
+        <pddlproblem name="ff-domains/chess_problem.pddl" />
         <kautham name="OMPL_RRTconnect_chess_ur3_gripper_1_simple.xml" />
         <directory name="/demos/OMPL_geo_demos/chess/"/>
         <graspit name =""/> <!--leave it empty if no graspit is to be used -->
