@@ -20,27 +20,25 @@
         </Initial>
     </States>
     
-    <Actions>
-
-        <!-- Pick action for CABALLOB (caballo blanco) from a3 -->
-        <Pick robot="UR3A" object="CABALLOB" region="a3">
-            <Rob>0</Rob>
-            <Obj>caballo_blanco</Obj>
-            <Link>8</Link>
+    <Actions>     
+    	<!-- Pick action for REYB (rey blanco) from b1 -->
+    	<Pick robot="UR3A" object="REYB" region="b1">
+            <Rob>0</Rob> <!-- Index of the robot according to the order in the kautham problem file-->
+            <Obj>rey_blanco</Obj> <!-- Name of the object according to the urdf file included in the kautham problem file-->
+            <Link>8</Link> <!-- Index of the robot link -->
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.587 0.337 0.698 0.698 0.746 0.587 0.538</Graspcontrols>
         </Pick>
-
-        <!-- Place action for CABALLOB (caballo blanco) to c2 -->
-        <Place robot="UR3A" object="CABALLOB" region="c2">
+        <!-- Place action for REYB (rey blanco) to c1 -->
+        <Place robot="UR3A" object="REYB" region="c1">
             <Rob>0</Rob>
-            <Obj>caballo_blanco</Obj>
+            <Obj>rey_blanco</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.782 0.337 0.698 0.698 0.746 0.52 0.538</Graspcontrols>
         </Place>
-        
+
         <!-- Pick action for REYN (rey negro) from d3 -->
         <Pick robot="UR3A" object="REYN" region="d3">
             <Rob>0</Rob>
@@ -59,19 +57,20 @@
             <Graspcontrols grasp="topgrasp">0.782 0.337 0.698 0.698 0.746 0.52 0.538</Graspcontrols>
         </Place>
 
-    	<!-- Pick action for REYB (rey blanco) from b1 -->
-    	<Pick robot="UR3A" object="REYB" region="b1">
-            <Rob>0</Rob> <!-- Index of the robot according to the order in the kautham problem file-->
-            <Obj>rey_blanco</Obj> <!-- Name of the object according to the urdf file included in the kautham problem file-->
-            <Link>8</Link> <!-- Index of the robot link -->
+        <!-- Pick action for CABALLOB (caballo blanco) from a3 -->
+        <Pick robot="UR3A" object="CABALLOB" region="a3">
+            <Rob>0</Rob>
+            <Obj>caballo_blanco</Obj>
+            <Link>8</Link>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.587 0.337 0.698 0.698 0.746 0.587 0.538</Graspcontrols>
         </Pick>
-        <!-- Place action for REYB (rey blanco) to c1 -->
-        <Place robot="UR3A" object="REYB" region="c1">
+
+        <!-- Place action for CABALLOB (caballo blanco) to c2 -->
+        <Place robot="UR3A" object="CABALLOB" region="c2">
             <Rob>0</Rob>
-            <Obj>rey_blanco</Obj>
+            <Obj>caballo_blanco</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.782 0.337 0.698 0.698 0.746 0.52 0.538</Graspcontrols>
