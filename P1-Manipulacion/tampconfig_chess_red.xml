@@ -19,6 +19,7 @@
             <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_1.cntr"> 0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.67609 </Robot>
         </Initial>
     </States>
+    
     <Actions>
 
         <!-- Pick action for CABALLOB (caballo blanco) from a3 -->
