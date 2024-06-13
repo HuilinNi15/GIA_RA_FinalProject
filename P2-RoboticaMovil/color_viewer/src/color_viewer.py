@@ -16,10 +16,10 @@ class color_viewer:
     def __init__(self) -> None:
         rospy.loginfo("Started color viewer node")
 
-        self.colors = {"red":np.array([0, 0, 255]), "green":np.array([0, 255, 0]), "blue": np.array([255, 0, 0])} #bgr en cv2
-        self.map_colors = {None: 0, "red": 1, "green": 2, "blue": 3}
+        self.colors = {"red":np.array([0, 0, 255]), "green":np.array([0, 255, 0]), "blue": np.array([255, 0, 0]), "yellow": np.array([224, 255, 255])} #bgr en cv2
+        self.map_colors = {None: 0, "red": 1, "green": 2, "blue": 3, "yellow": 4}
         self.color_threshold = 100
-        self.pixel_count_threshold = 1080 * 1920 // 3 ####################33 ajustar depen el tamany de la imatge
+        self.pixel_count_threshold = 100000# 1080 * 1920 // 10 ####################33 ajustar depen el tamany de la imatge
         self.step = 10 ################## ajustar depen el tamany de la imatge
         self.bridge_object = CvBridge()
         self.sub = rospy.Subscriber("/camera/rgb/image_raw", Image, callback=self.camera_callback)
@@ -37,11 +37,13 @@ class color_viewer:
         for row in sampled_image:
             for pixel in row:
                 for color_str in self.colors:
-                    c[color_str] += self.check_1_color(color_str, pixel)
+                    c[color_str] += 100*self.check_1_color(color_str, pixel)
         m = max(c, key=c.get)
-        self.color = m if c[m]*10 > self.pixel_count_threshold else None # si utilitzem un threshold posat a ma
+        self.color = m if c[m] > self.pixel_count_threshold else None # si utilitzem un threshold posat a ma
         # self.color = m if c[m]*10 > self.image.size//3 else None
-        rospy.loginfo(f"dict {c}")
+        rospy.loginfo("")
+        rospy.loginfo(f"{c}")
+        rospy.loginfo("")
 
     def camera_callback(self, messages):
         try:
