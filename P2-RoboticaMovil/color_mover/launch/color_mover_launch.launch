@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="color_mover" type="color_mover.py" name="color_mover_node" output="screen">
+  </node>
+</launch>

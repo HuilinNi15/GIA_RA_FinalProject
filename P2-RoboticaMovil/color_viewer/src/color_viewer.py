@@ -6,6 +6,7 @@ import cv2
 import sys
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
+from std_msgs.msg import Int8
 # from geometry_msgs.msg import Twist
 # from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal, MoveBaseResult, MoveBaseFeedback
 # import actionlib
@@ -16,11 +17,13 @@ class color_viewer:
         rospy.loginfo("Started color viewer node")
 
         self.colors = {"red":np.array([0, 0, 255]), "green":np.array([0, 255, 0]), "blue": np.array([255, 0, 0])} #bgr en cv2
+        self.map_colors = {None: 0, "red": 1, "green": 2, "blue": 3}
         self.color_threshold = 100
-        self.pixel_count_threshold = 100 ####################33 ajustar depen el tamany de la imatge
+        self.pixel_count_threshold = 1080 * 1920 // 3 ####################33 ajustar depen el tamany de la imatge
         self.step = 10 ################## ajustar depen el tamany de la imatge
         self.bridge_object = CvBridge()
-        self.sub = rospy.Subscriber("/camera/rgb/image_raw", Image, callback=self.camera_callback)  # canviar de LaserScan a Image? (mirar com es diu)
+        self.sub = rospy.Subscriber("/camera/rgb/image_raw", Image, callback=self.camera_callback)
+        self.pub = rospy.Publisher('integer_topic', Int8, queue_size=1)
    
     def color_distance(self, c1, c2):
         return np.sqrt(np.sum((c1 - c2) ** 2))
@@ -37,7 +40,8 @@ class color_viewer:
                     c[color_str] += self.check_1_color(color_str, pixel)
         m = max(c, key=c.get)
         self.color = m if c[m]*10 > self.pixel_count_threshold else None # si utilitzem un threshold posat a ma
-        # self.color = m if c[m]*10 > self.image.size//2 else None
+        # self.color = m if c[m]*10 > self.image.size//3 else None
+        rospy.loginfo(f"dict {c}")
 
     def camera_callback(self, messages):
         try:
@@ -47,12 +51,14 @@ class color_viewer:
         # mirem si hi ha algun color que s'assembla
         self.check_colors()
         if self.color:
-            rospy.loginfo(f"Found color {self.color} OvO")
+            rospy.loginfo(f"Found color {self.color} OuO") #, shape {self.image.size, self.image.shape}")
         else:
             rospy.loginfo("No signal color found")
         
         # aqui publicar (o cridar un metode q publiqui) quan ja vagi (missatge personalitzat)
-
+        msg = Int8()
+        msg.data = self.map_colors[self.color]
+        self.pub.publish(msg)
 if __name__== "__main__":
     np.random.seed(373)
     rospy.init_node("color_viewer_node")
