@@ -1,12 +1,11 @@
 import numpy as np
 
 def grados_a_radianes(grados):
+    # print(f'rads: {np.radians(grados)}\n')
     return np.radians(grados)
 
 def normalizar_radianes(radianes):
-    radianes_min = -2*np.pi# np.min(radianes)
-    radianes_max = 2*np.pi #np.max(radianes)
-    return (radianes - radianes_min) / (radianes_max - radianes_min)
+    return (radianes + 2 * np.pi) / (4 * np.pi) # Porque tenemos grados de [-360 , 360], por lo que en rads son [-2pi, 2pi] 
 
 def procesar_vector(vector_grados):
     radianes = grados_a_radianes(vector_grados)
@@ -83,5 +82,5 @@ vectors = [
 # Iterate through each vector, process and print the normalized vector with its name
 for name, vector in vectors:
     normalized_vector = procesar_vector(vector)
-    normalized_vector_str = ', '.join(format(round(v, 6), ".6f") for v in normalized_vector)
-    print(f"{name}: {normalized_vector_str}")
+    normalized_vector_str = ' '.join(format(round(v, 6), ".6f") for v in normalized_vector)
+    print(f"{name}: [{normalized_vector_str}]")
