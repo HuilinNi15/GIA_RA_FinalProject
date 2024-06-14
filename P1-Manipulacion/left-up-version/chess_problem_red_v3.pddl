@@ -16,7 +16,7 @@
 
 (:init
     ; Pos Inicial Robot
-    (on ur3a a1)
+    (on ur3a a3)
     (handEmpty ur3a)
 
     ; Declarar tipo pieza
@@ -68,7 +68,7 @@
 
         ; Pos Final Negras
         (in rey_negro c4)
-        (on ur3a a1)
+        (on ur3a a3)
     )
 )
 )

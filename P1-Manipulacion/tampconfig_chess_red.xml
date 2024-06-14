@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Config>
     <Problemfiles>
-        <pddldomain name="ff-domains/chess_domain.pddl" />
-        <pddlproblem name="ff-domains/chess_problem_red.pddl" />
-        <kautham name="OMPL_RRTconnect_chess_ur3_gripper_1_simple.xml" />
+        <pddldomain name="ff-domains/chess_domain_v3.pddl" />
+        <pddlproblem name="ff-domains/chess_problem_red_v3.pddl" />
+        <kautham name="OMPL_RRTconnect_chess_ur3_gripper_2.xml" />
         <directory name="/demos/OMPL_geo_demos/chess/"/>
         <graspit name =""/> <!--leave it empty if no graspit is to be used -->
     </Problemfiles>
@@ -12,17 +12,26 @@
         <!-- The Graspcontrols will be to be changed accordingly the new intial object poses-->
         <!-- (be careful: if the objects change their initial room then also the pddl problem file has to be set accordingly) -->
         <Initial>
-            <Object name="REYB" kthname="rey_blanco"> 0.525 0 0.91 1 0 0 0 </Object>
-            <Object name="CABALLOB" kthname="caballo_blanco"> 0.625 0 0.91 1 0 0 0 </Object>
-            <Object name="REYN" kthname="rey_negro"> 0.725 0 0.91 1 0 0 0 </Object>
+            <Object name="REY_BLANCO" kthname="kingW"> 0.525 0 0.91 1 0 0 0 </Object>
+            <Object name="CABALLO_BLANCO" kthname="horseB1"> 0.625 0 0.91 1 0 0 0 </Object>
+            <Object name="REY_NEGRO" kthname="kingB"> 0.725 0 0.91 1 0 0 0 </Object>
             
-            <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_1.cntr"> 0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.67609 </Robot>
+            <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_1.cntr"> 0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.67609 </Robot>
         </Initial>
     </States>
     
-    <Actions>     
-    	<!-- Pick action for REYB (rey blanco) from b1 -->
-    	<Pick robot="UR3A" object="REYB" region="b1">
+    <Actions>
+    
+        <!-- Move action for EMPTY from a3 to b1 -->
+        <Move robot="UR3A" region_from="A3" region_to="B1">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.677097 0.426000 0.555361 0.395097 0.379403 0.927014 0.538</InitControls>
+            <GoalControls>0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.538</GoalControls>
+        </Move>     
+    	
+    	<!-- Pick action for REY_BLANCO (rey blanco) from b1 -->
+    	<Pick robot="UR3A" object="REY_BLANCO" region="B1">
             <Rob>0</Rob> <!-- Index of the robot according to the order in the kautham problem file-->
             <Obj>rey_blanco</Obj> <!-- Name of the object according to the urdf file included in the kautham problem file-->
             <Link>8</Link> <!-- Index of the robot link -->
@@ -30,17 +39,34 @@
             <Regioncontrols>0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.692431 0.421958 0.593556 0.346333 0.387194 0.943861 0.538</Graspcontrols>
         </Pick>
+        
+        <!-- Move action for REY_BLANCO from b1 to c1 -->
+        <Move robot="UR3A" region_from="B1" region_to="C1">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.538</InitControls>
+            <GoalControls>0.703653 0.421403 0.565264 0.380653 0.383778 0.955486 0.538</GoalControls>
+        </Move> 
+        
         <!-- Place action for REYB (rey blanco) to c1 -->
-        <Place robot="UR3A" object="REYB" region="c1">
+        <Place robot="UR3A" object="REY_BLANCO" region="C1">
             <Rob>0</Rob>
             <Obj>rey_blanco</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.703653 0.421403 0.565264 0.380653 0.383778 0.955486 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.703653 0.421417 0.591639 0.354264 0.383750 0.955569 0.538</Graspcontrols>
         </Place>
+        
+        <!-- Move action for EMPTY from c1 to d3 -->
+        <Move robot="UR3A" region_from="B1" region_to="C1">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.703653 0.421403 0.565264 0.380653 0.383778 0.955486 0.538</InitControls>
+            <GoalControls>0.704278 0.382528 0.621764 0.364042 0.382625 0.955528 0.538</GoalControls>
+        </Move> 
 
-        <!-- Pick action for REYN (rey negro) from d3 -->
-        <Pick robot="UR3A" object="REYN" region="d3">
+        <!-- Pick action for REY_NEGRO (rey negro) from d3 -->
+        <Pick robot="UR3A" object="REY_NEGRO" region="D3">
             <Rob>0</Rob>
             <Obj>rey_negro</Obj>
             <Link>8</Link>
@@ -48,17 +74,34 @@
             <Regioncontrols>0.704278 0.382528 0.621764 0.364042 0.382625 0.955528 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.704278 0.386292 0.640083 0.341944 0.382597 0.955611 0.538</Graspcontrols>
         </Pick>
-        <!-- Place action for REYN (rey negro) to c4 -->
-        <Place robot="UR3A" object="REYN" region="c4">
+        
+        <!-- Move action for REY_NEGRO from d3 to c4 -->
+        <Move robot="UR3A" region_from="D3" region_to="C4">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.704278 0.382528 0.621764 0.364042 0.382625 0.955528 0.538</InitControls>
+            <GoalControls>0.692458 0.387750 0.604069 0.386708 0.375319 0.945917 0.538</GoalControls>
+        </Move> 
+        
+        <!-- Place action for REY_NEGRON (rey negro) to c4 -->
+        <Place robot="UR3A" object="REY_NEGRO" region="C4">
             <Rob>0</Rob>
             <Obj>rey_negro</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.692458 0.387750 0.604069 0.386708 0.375319 0.945917 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.692472 0.390056 0.631667 0.356806 0.375306 0.946028 0.538</Graspcontrols>
         </Place>
+        
+        <!-- Move action for EMPTY from c4 to a3 -->
+        <Move robot="UR3A" region_from="C4" region_to="A3">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.692458 0.387750 0.604069 0.386708 0.375319 0.945917 0.538</InitControls>
+            <GoalControls>0.677097 0.426000 0.555361 0.395097 0.379403 0.927014 0.538</GoalControls>
+        </Move> 
 
         <!-- Pick action for CABALLOB (caballo blanco) from a3 -->
-        <Pick robot="UR3A" object="CABALLOB" region="a3">
+        <Pick robot="UR3A" object="CABALLO_BLANCO" region="A3">
             <Rob>0</Rob>
             <Obj>caballo_blanco</Obj>
             <Link>8</Link>
@@ -66,15 +109,32 @@
             <Regioncontrols>0.677097 0.426000 0.555361 0.395097 0.379403 0.927014 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.677097 0.424014 0.582764 0.369681 0.379403 0.927111 0.538</Graspcontrols>
         </Pick>
+        
+        <!-- Move action for CABALLO_BLANCO de santiago from a3 to c2 -->
+        <Move robot="UR3A" region_from="A3" region_to="C2">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.677097 0.426000 0.555361 0.395097 0.379403 0.927014 0.538</InitControls>
+            <GoalControls>0.698597 0.407000 0.583139 0.380194 0.383403 0.951528 0.538</GoalControls>
+        </Move> 
 
         <!-- Place action for CABALLOB (caballo blanco) to c2 -->
-        <Place robot="UR3A" object="CABALLOB" region="c2">
+        <Place robot="UR3A" object="CABALLO_BLANCO" region="C2">
             <Rob>0</Rob>
             <Obj>caballo_blanco</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.698597 0.407000 0.583139 0.380194 0.383403 0.951528 0.538</Regioncontrols>
             <Graspcontrols grasp="topgrasp">0.704167 0.408500 0.609889 0.351931 0.383375 0.951625 0.538</Graspcontrols>
         </Place>
+        
+        <!--  action for EMPTY de santiago from c2 to a3 -->
+        <Move robot="UR3A" region_from="C2" region_to="A3">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.698597 0.407000 0.583139 0.380194 0.383403 0.951528 0.538</InitControls>
+            <GoalControls>0.677097 0.426000 0.555361 0.395097 0.379403 0.927014 0.538</GoalControls>
+        </Move> 
+        
         
     </Actions>
 </Config>
