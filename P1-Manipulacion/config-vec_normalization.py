@@ -83,4 +83,4 @@ vectors = [
 for name, vector in vectors:
     normalized_vector = procesar_vector(vector)
     normalized_vector_str = ' '.join(format(round(v, 6), ".6f") for v in normalized_vector)
-    print(f"{name}: [{normalized_vector_str}]")
+    print(f"{name}: {normalized_vector_str}")
