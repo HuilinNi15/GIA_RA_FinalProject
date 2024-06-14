@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
      <!--arg name="tampconfigfile" default="/demos/OMPL_geo_demos/chess/tampconfig_chess_1_simple.xml" /-->
-     <arg name="tampconfigfile" default="/demos/OMPL_geo_demos/chess/tampconfig_chess_1_simple.xml" />
+     <arg name="tampconfigfile" default="/demos/OMPL_geo_demos/chess/tampconfig_chess_red.xml" />
 
      <node name="kautham_node" pkg="kautham" type="kautham-rosnode" launch-prefix="xterm -e" />
      <!--node name="kautham_node" pkg="kautham" type="kautham-rosnode" output="screen"  /-->
