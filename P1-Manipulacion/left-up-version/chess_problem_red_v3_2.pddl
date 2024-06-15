@@ -8,7 +8,7 @@
     c1 c2 c3 c4
     d1 d2 d3 d4 - casilla
 
-    rey_blanco - pieza 
+    rey_blanco rey_negro caballo_blanco - pieza 
     ur3a - robot
     
     white black - color
@@ -20,20 +20,27 @@
     (handEmpty ur3a)
 
     ; Declarar tipo pieza
+    (caballo caballo_blanco)
+    (rey rey_negro)
     (rey rey_blanco)
 
     ; Pos Inicial Blancas
     (in rey_blanco b1)
+    (in caballo_blanco a3)
 
     (colorPieza rey_blanco white)
+    (colorPieza caballo_blanco white)
+
+    ; Pos Inicial Negras
+    (in rey_negro d3)
+
+    (colorPieza rey_negro black)
     
     ;; Casillas Vacías Iniciales
     (empty a1) (empty a2) (empty a4)
     (empty b2) (empty b3) (empty b4)
     (empty c1) (empty c2) (empty c3) (empty c4) 
     (empty d1) (empty d2) (empty d4)
-    
-    (empty a3) (empty d3)
 
     ;; Posicion relativa Casillas 
 
@@ -57,8 +64,11 @@
     (and
         ; Pos Final Blancas
         (in rey_blanco c1) 
+        (in caballo_blanco a3)
 
-        (on ur3a a3)
+        ; Pos Final Negras
+        (in rey_negro d3)
+        (on ur3a c1)
     )
 )
 )
