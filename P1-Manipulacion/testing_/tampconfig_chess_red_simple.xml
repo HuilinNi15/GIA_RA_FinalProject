@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<Config>
+    <Problemfiles>
+        <pddldomain name="ff-domains/chess_domain_v3.pddl" />
+        <!--<pddlproblem name="ff-domains/chess_problem_red_v3.pddl" />-->
+        <pddlproblem name="ff-domains/chess_problem_red_v3_2.pddl" />
+        <!--<kautham name="OMPL_RRTconnect_chess_ur3_gripper_2.xml" />-->
+        <kautham name="OMPL_RRTconnect_chess_ur3_gripper_1_simple.xml" />
+        <directory name="/demos/OMPL_geo_demos/chess/"/>
+        <graspit name =""/> <!--leave it empty if no graspit is to be used -->
+    </Problemfiles>
+    <States>
+        <!-- You can set a different instance of the problem by modifying the intial object poses-->
+        <!-- The Graspcontrols will be to be changed accordingly the new intial object poses-->
+        <!-- (be careful: if the objects change their initial room then also the pddl problem file has to be set accordingly) -->
+        <Initial>
+            <Object name="REY_BLANCO" kthname="kingW">  0.125 0 0.91 1 0 0 0</Object> <!-- orientation in axis-angle (vx,vy,vz,theta) like in the kautham problem files-->
+            <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_1.cntr"> 0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.67609 </Robot>
+        </Initial>
+    </States>
+    
+    <Actions>
+        <!-- Move action for EMPTY from a3 to b1 -->
+        <Move robot="UR3A" region_from="A3" region_to="B1">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.538</InitControls>
+            <GoalControls>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</GoalControls>
+        </Move> 
+    
+        <Pick robot="UR3A" object="REY_BLANCO" region="B1">
+            <Rob> 0 </Rob> <!-- Index of the robot according to the order in the kautham problem file-->
+            <Obj> kingW </Obj> <!-- Name of the object according to the urdf file included in the kautham problem file-->
+            <Link> 8 </Link> <!-- Index of the robot link -->
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <Regioncontrols> 0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538 </Regioncontrols>
+            <!--Robot A picks object - Robot B at home configuration-->
+            <Graspcontrols grasp="topgrasp"> 0.587 0.337 0.698 0.698 0.746 0.587 0.538 </Graspcontrols>
+            <!--Graspcontrols grasp="topgrasp"> 0.846 0.944 0.861 0.786 0.594 0.226 0.850 0.429 1.000</Graspcontrols-->
+            <!--Pose>1.1 0 0.91 0 0 0 1</Pose-->
+        </Pick>
+        
+        <!-- Move action for REY_BLANCO from b1 to c1 -->
+        <Move robot="UR3A" region_from="B1" region_to="C1">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</InitControls>
+            <GoalControls>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</GoalControls>
+        </Move> 
+        
+        
+        <Place robot="UR3A" object="REY_BLANCO" region="C1">
+            <Rob> 0 </Rob>
+            <Obj> kingW </Obj>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <Regioncontrols> 0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538 </Regioncontrols>
+            <!--Robot A places object - Robot B at home configuration-->
+            <Graspcontrols grasp= "topgrasp">0.782 0.337 0.698 0.698 0.746 0.52 0.538 </Graspcontrols>
+            </Place>
+            
+        <!-- Move action for EMPTY from C1 to C2 -->
+        <Move robot="UR3A" region_from="C1" region_to="C2">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.662338 0.271613 0.760218 0.722817 0.738732 0.659155 0.538</InitControls>
+            <GoalControls>0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.538</GoalControls>
+        </Move> 
+           
+
+            <!--Graspcontrols grasp="topgrasp"> 0.9 0.597 0.861 0.786 0.594 0.226 0.850 0.429 1.000</Graspcontrols-->
+            <!--Poseregion>-0.95 -0.9 0.3 0.35  0.907 0.004158435855060816 0.014741266146302223 -0.9167522192001343 0.3991626501083374</Poseregion>
+            <Pose> -0.910 0.314 0.9071908593177795 0.004158435855060816 0.014741266146302223 -0.9167522192001343 0.3991626501083374</Pose-->
+        
+    </Actions>
+</Config>
