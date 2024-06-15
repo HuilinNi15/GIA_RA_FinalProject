@@ -1,50 +1,37 @@
 <?xml version="1.0"?>
 <Problem name="OMPL_RRTconnect_chess_rob1">
-        <Obstacle obstacle="obstacles/chess/chessboard.urdf" scale="1.0">
+	<Obstacle obstacle="obstacles/chess/chessboard.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.02" Y="0.0" X="0.0" />
-        </Obstacle>
-        
+	</Obstacle>
 	<Obstacle obstacle="obstacles/chess/kingB.urdf" scale="1.0">
-		<Home TH="-1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.025" X="0.175" />
+		<Home TH="-1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="0.0725" X="0.03" />
 	</Obstacle>
-
 	<Obstacle obstacle="obstacles/chess/horseW1.urdf" scale="1.0">
-		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.03" Y="-0.125" X="-0.175" />
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="0.0725" X="0.2" />
 	</Obstacle>
-
 	<Obstacle obstacle="obstacles/chess/kingW.urdf" scale="1.0">
-		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="0.025" X="-0.175" />
-	</Obstacle>
-	<Obstacle obstacle="obstacles/chess/realsense_d435_1.urdf" scale="1.0">
-		<Home TH="3.1415" WZ="1.0" WY="0.0" WX="0.0" Z="0.0" Y="0.29" X="0.0" />
-	</Obstacle>
-	<Obstacle obstacle="obstacles/chess/realsense_d435_2.urdf" scale="1.0">
-		<Home TH="0.0" WZ="1.0" WY="0.0" WX="0.0" Z="0.0" Y="-0.29" X="0.0" />
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="0.14" X="0.13" />
 	</Obstacle>
 	<Robot robot="robots/ur3_robotniq_A.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.04" Y="0.0" X="0.37" />
-                <ViewLink name="tool0"/>
+		<ViewLink name="tool0" />
 	</Robot>
-	<!--<Robot robot="robots/ur3_robotniq_B.urdf" scale="1.0">
-		<Home TH="-1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.04" Y="0.0" X="-0.37" />
-                <ViewLink name="tool0"/>
-	</Robot>-->
-	<Controls robot="controls/ur3_robotniq_2.cntr" />
+	<Controls robot="controls/ur3_robotniq_1.cntr" />
 	<Planner>
 		<Parameters>
 			<Name>omplRRTConnect</Name>
+			<Parameter name="Range">0.5</Parameter>
 			<Parameter name="_Cspace Drawn">0</Parameter>
 			<Parameter name="_Incremental (0/1)">0</Parameter>
 			<Parameter name="_Max Planning Time">10</Parameter>
 			<Parameter name="_Path Drawn (0/1)">1</Parameter>
 			<Parameter name="_Simplify Solution">2</Parameter>
 			<Parameter name="_Speed Factor">1</Parameter>
-			<Parameter name="Range">0.5</Parameter>
 		</Parameters>
 		<Queries>
 			<Query>
-				<Init>0.692431 0.420750 0.571250 0.369861 0.387222 0.943778 0.67609</Init>
-				<Goal>0.677097 0.426000 0.555361 0.395097 0.379403 0.927014 0.538</Goal>
+				<Init dim="7">0.692431 0.42075 0.57125 0.369861 0.387222 0.943778 0.67609</Init>
+				<Goal dim="7">0.677097 0.426 0.555361 0.395097 0.379403 0.927014 0.538</Goal>
 			</Query>
 		</Queries>
 	</Planner>
