@@ -68,7 +68,7 @@
 
         ; Pos Final Negras
         (in rey_negro d3)
-        (on ur3a c1)
+        (on ur3a c2)
     )
 )
 )
