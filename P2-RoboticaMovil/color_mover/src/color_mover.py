@@ -7,6 +7,7 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal, MoveBaseResult, Mov
 import actionlib
 from geometry_msgs.msg import Twist
 # from sensor_msgs.msg import LaserScan  # podem afegir el Laser per decidir millor com actuar
+from std_srvs.srv import Empty
 
 class color_mover:
     def __init__(self) -> None:
@@ -24,10 +25,22 @@ class color_mover:
         self.goal = MoveBaseGoal()
         self.goal.target_pose.pose.orientation.w = 1
         self.l = 0.3
-    
+        rospy.loginfo("Clearing space")
+        self.clear_unknown_space()
+        rospy.loginfo("Space cleared")
+        
     def move_arm(self):
         "donada la posició del braç, moure'l allà"
         pass
+    
+    def clear_unknown_space(self):
+        rospy.wait_for_service('clear_unknown_space')
+        try:
+            clear_service = rospy.ServiceProxy('clear_unknown_space', Empty)
+            clear_service()
+            rospy.loginfo("Unknown space cleared successfully.")
+        except rospy.ServiceException as e:
+            rospy.logerr(f"Service call failed: {e}")
 
     def move_to_goal(self, x, y, wait=False):
         """
@@ -45,18 +58,19 @@ class color_mover:
     def color_callback(self, messages):
         color_int = messages.data
         self.color = self.map_colors[color_int]
-        rospy.loginfo(f"Recieved color {self.color}")
-        
+        # rospy.loginfo(f"Recieved color {self.color}")
+        rospy.loginfo(self.l)
         if not self.color:
+        
             # si no hi ha res tirar endavant
-            self.move_to_goal(0, self.l, wait=False)
+            self.move_to_goal(0, self.l, wait=True)
         elif self.color == "red": ## parar 3 segons
             rospy.sleep(3)
-            self.move_to_goal(0, self.l, wait=False)
+            self.move_to_goal(0, self.l, wait=True)
         elif self.color == "green":  ## girar esquerra (n dist a esq)
-            self.move_to_goal(self.l, 0, wait=False)
+            self.move_to_goal(self.l, 0, wait=True)
         elif self.color == "blue":  ## girar dreta (n dist a dreta)
-            self.move_to_goal(-self.l, 0, wait=False)
+            self.move_to_goal(-self.l, 0, wait=True)
         elif self.color == "yellow":
             """self.move_arm()
             self.move_to_goal(0, self.l, wait=True)
