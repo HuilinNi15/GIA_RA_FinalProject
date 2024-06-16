@@ -60,7 +60,7 @@
                             (on ?rob ?from)
                             ; (not (on ?rob ?to))
                             (or 
-                                (and (turnWhite) (up ?from ?to)) 
+                                (and (turnWhite) (up ?to ?from)) 
                                 (and (turnBlack) (up ?from ?to))
                             )
 

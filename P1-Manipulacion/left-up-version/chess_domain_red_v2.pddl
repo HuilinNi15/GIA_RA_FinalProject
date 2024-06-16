@@ -92,7 +92,7 @@
                      (holding ?rob ?p)
                      (empty ?to)
                      (or 
-                            (and (turnWhite) (up ?from ?to)) 
+                            (and (turnWhite) (up ?to ?from)) 
                             (and (turnBlack) (up ?from ?to))
                      )
 
