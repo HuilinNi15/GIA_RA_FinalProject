@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Config>
     <Problemfiles>
-        <pddldomain name="ff-domains/chess_domain_v3.pddl" />
+        <pddldomain name="ff-domains/chess_domain_v4.pddl" />
         <!--<pddlproblem name="ff-domains/chess_problem_red_v3.pddl" />-->
-        <pddlproblem name="ff-domains/chess_problem_red_v3.pddl" />
+        <pddlproblem name="ff-domains/chess_problem_v4.pddl" />
         <!--<kautham name="OMPL_RRTconnect_chess_ur3_gripper_2.xml" />-->
         <kautham name="OMPL_RRTconnect_chess_ur3_gripper_2.xml" />
         <directory name="/demos/OMPL_geo_demos/chess/"/>

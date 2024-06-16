@@ -31,6 +31,7 @@
 (:action move
         :parameters (?rob - robot ?from - casilla ?to - casilla ?c1 - casilla ?c2 - casilla ?p - pieza)
         :precondition (and (on ?rob ?from) 
+        		(not (on ?rob ?to))
                           (not (moved))
                             (or
                             ;;(and (not (holding ?rob ?p)) (handEmpty ?rob))  ;; en cas de move empty
