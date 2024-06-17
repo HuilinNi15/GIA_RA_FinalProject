@@ -129,7 +129,7 @@
             <Graspcontrols grasp="topgrasp">0.908333 0.317000 0.719778 0.203861 0.266750 0.403250 0.538</Graspcontrols>
         </Place>
         
-        <!--  action for EMPTY de santiago from c1 to c2 -->
+        <!-- Move action for EMPTY from c2 to a3 -->
         <Move robot="UR3A" region_from="C2" region_to="A3">
             <Rob>0</Rob>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
