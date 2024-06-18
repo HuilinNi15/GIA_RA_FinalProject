@@ -4,13 +4,13 @@
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.02" Y="-0.35" X="0.15" />
 	</Obstacle>
 	<Obstacle obstacle="obstacles/chess/kingB.urdf" scale="1.0">
-		<Home TH="-1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="0.0725" X="0.03" />
+		<Home TH="-1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.363" X="0.3" />
 	</Obstacle>
 	<Obstacle obstacle="obstacles/chess/horseW1.urdf" scale="1.0">
-		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="0.0725" X="0.2" />
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.363" X="0.1" />
 	</Obstacle>
 	<Obstacle obstacle="obstacles/chess/kingW.urdf" scale="1.0">
-		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.465" X="0.19" />
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.45" X="0.175" />
 	</Obstacle>
 	<Robot robot="robots/ur3_robotniq_A.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.04" Y="0.0" X="0.37" />
@@ -30,7 +30,7 @@
 		</Parameters>
 		<Queries>
 			<Query>
-				<Init dim="7">0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.67609</Init>
+				<Init dim="7">0.854194 0.352 0.610722 0.290194 0.258806 0.354028 0.67609</Init>
 				<Goal dim="7">0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</Goal>
 			</Query>
 		</Queries>
