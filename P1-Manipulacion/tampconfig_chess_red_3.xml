@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<Config>
+    <Problemfiles>
+        <pddldomain name="ff-domains/chess_domain_v4.pddl" />
+        <!--<pddlproblem name="ff-domains/chess_problem_red_v3.pddl" />-->
+        <pddlproblem name="ff-domains/chess_problem_v4_3.pddl" />
+        <!--<kautham name="OMPL_RRTconnect_chess_ur3_gripper_2.xml" />-->
+        <kautham name="OMPL_RRTconnect_chess_ur3_gripper_2_3.xml" />
+        <directory name="/demos/OMPL_geo_demos/chess/"/>
+        <graspit name =""/> <!--leave it empty if no graspit is to be used -->
+    </Problemfiles>
+    
+    <States>
+        <!-- You can set a different instance of the problem by modifying the intial object poses-->
+        <!-- The Graspcontrols will be to be changed accordingly the new intial object poses-->
+        <!-- (be careful: if the objects change their initial room then also the pddl problem file has to be set accordingly) -->
+        <Initial>
+            <Object name="PEON_negro" kthname="pawnB1"> 0.675 -0.45 0.904 0 0 1 0 </Object>
+            <Object name="REY_BLANCO" kthname="kingW"> 0.1 -0.363 0.904 0 0 1 0 </Object>
+            
+            
+            <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_1.cntr"> 0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.67609 </Robot>
+        </Initial>
+    </States>
+    
+    <Actions>
+        <Move robot="UR3A" region_from="A3" region_to="C2">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</InitControls>
+            <GoalControls>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</GoalControls>
+        </Move>
+        
+        
+        <Pick robot="UR3A" object="PEON_NEGRO" region="C2">
+            <Rob>0</Rob>
+            <Obj>pawnB1</Obj>
+            <Link>8</Link>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <Regioncontrols>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.908333 0.317000 0.719778 0.203861 0.266750 0.403250 0.538</Graspcontrols>
+        </Pick>
+        
+               
+        <Move robot="UR3A" region_from="C2" region_to="C1">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</InitControls>
+            <GoalControls>0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</GoalControls>
+        </Move> 
+        
+        
+        <Place robot="UR3A" object="PEON_NEGRO" region="C1">
+            <Rob>0</Rob>
+            <Obj>pawnB1</Obj>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <Regioncontrols>0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.907306 0.342833 0.683278 0.208528 0.267500 0.411139 0.538</Graspcontrols>
+        </Place>
+        
+        <Move robot="UR3A" region_from="C1" region_to="D3">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</InitControls>
+            <GoalControls>0.908556 0.265056 0.743528 0.228083 0.265250 0.411056 0.538</GoalControls>
+        </Move>
+        
+        <Pick robot="UR3A" object="REY_BLANCO" region="D3">
+            <Rob>0</Rob>
+            <Obj>kingW</Obj>
+            <Link>8</Link>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <Regioncontrols>0.908556 0.265056 0.743528 0.228083 0.265250 0.411056 0.538</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.908556 0.272583 0.780167 0.183889 0.265194 0.411222 0.538</Graspcontrols>
+        </Pick>
+        
+        <Move robot="UR3A" region_from="D3" region_to="C2">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.908556 0.265056 0.743528 0.228083 0.265250 0.411056 0.538</InitControls>
+            <GoalControls>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</GoalControls>
+        </Move>
+        
+        <Place robot="UR3A" object="REY_BLANCO" region="C2">
+            <Rob>0</Rob>
+            <Obj>kingW</Obj>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <Regioncontrols>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Regioncontrols>
+            <Graspcontrols grasp="topgrasp">0.908333 0.317000 0.719778 0.203861 0.266750 0.403250 0.538</Graspcontrols>
+        </Place>
+        
+        <Move robot="UR3A" region_from="C2" region_to="A3">
+            <Rob>0</Rob>
+            <Cont>controls/ur3_robotniq_1.cntr</Cont>
+            <InitControls>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</InitControls>
+            <GoalControls>0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</GoalControls>
+        </Move> 
+    </Actions>
+</Config>   

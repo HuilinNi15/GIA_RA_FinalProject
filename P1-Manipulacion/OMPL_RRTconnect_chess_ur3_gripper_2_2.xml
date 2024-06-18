@@ -3,16 +3,12 @@
 	<Obstacle obstacle="obstacles/chess/chessboard.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.02" Y="-0.35" X="0.15" />
 	</Obstacle>
-	<Obstacle obstacle="obstacles/chess/kingB.urdf" scale="1.0">
-		<Home TH="0" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.363" X="0.3" />
-	</Obstacle>
-	<Obstacle obstacle="obstacles/chess/horseW1.urdf" scale="1.0">
+	<Obstacle obstacle="obstacles/chess/horseB1.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.363" X="0.1" />
 	</Obstacle>
-	<Obstacle obstacle="obstacles/chess/kingW.urdf" scale="1.0">
+	<Obstacle obstacle="obstacles/chess/pawnW1.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.04" Y="-0.45" X="0.175" />
 	</Obstacle>
-
 	<Robot robot="robots/ur3_robotniq_A.urdf" scale="1.0">
 		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.04" Y="0.0" X="0.37" />
 		<ViewLink name="tool0" />
