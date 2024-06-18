@@ -17,7 +17,7 @@ class color_mover:
         self.l = 0.3
         self.map_colors = {0: None, 1: "red", 2: "green", 3: "blue", 4: "yellow"}
         
-        self.sub = rospy.Subscriber('integer_topic', Int8, callback=self.color_callback)
+        self.sub = rospy.Subscriber('integer_topic', Int8, callback=self.color_callback, queue_size=1)
         self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 
         # self.armpub = rospy.Publisher('/joint_trajectory_point', JointTrajectory, queue_size=10)
