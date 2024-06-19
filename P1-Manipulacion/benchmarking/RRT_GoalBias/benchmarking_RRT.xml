@@ -1,0 +1,10 @@
+<Benchmark Name="OMPL_RRT">
+	<Problem File="OMPL_RRT_GoalBias_0.05.xml" PlannerAlias="GoalBias_0.05"/>
+	<Problem File="OMPL_RRT_GoalBias_0.1.xml" PlannerAlias="GoalBias_0.1"/>
+	<Problem File="OMPL_RRT_GoalBias_0.5.xml" PlannerAlias="GoalBias_0.5"/>
+	<Problem File="OMPL_RRT_GoalBias_0.9.xml" PlannerAlias="GoalBias_0.9"/>
+	<Parameter Name="maxMem" Value="7000.0" />
+	<Parameter Name="runCount" Value="10" />
+	<Parameter Name="displayProgress" Value="false" />
+	<Parameter Name="filename" Value="resultRRT.log" />
+</Benchmark>

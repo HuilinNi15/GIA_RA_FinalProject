@@ -1,0 +1,12 @@
+<Benchmark Name="OMPL_RRTStar">
+	<Problem File="OMPL_RRTStar_rewirefact_0.0.xml" PlannerAlias="rewirefact_0.0"/>
+	<Problem File="OMPL_RRTStar_rewirefact_0.2.xml" PlannerAlias="rewirefact_0.2"/>
+	<Problem File="OMPL_RRTStar_rewirefact_0.4.xml" PlannerAlias="rewirefact_0.4"/>
+	<Problem File="OMPL_RRTStar_rewirefact_0.6.xml" PlannerAlias="rewirefact_0.6"/>
+	<Problem File="OMPL_RRTStar_rewirefact_0.8.xml" PlannerAlias="rewirefact_0.8"/>
+	<Problem File="OMPL_RRTStar_rewirefact_1.xml" PlannerAlias="rewirefact_1"/>
+	<Parameter Name="maxMem" Value="7000.0" />
+	<Parameter Name="runCount" Value="10" />
+	<Parameter Name="displayProgress" Value="false" />
+	<Parameter Name="filename" Value="resultRRTStar.log" />
+</Benchmark>

@@ -1,0 +1,10 @@
+<Benchmark Name="OMPL_AllTogether">
+	<Problem File="OMPL_PRMgaussian.xml" PlannerAlias="PRMgaussian"/>
+	<Problem File="OMPL_RRTconnect_2_2_range-0.5.xml" PlannerAlias="RRTConnect_Range-0.5"/>
+	<Problem File="OMPL_RRT_GoalBias_0.9.xml" PlannerAlias="RRT_GoalBias-0.9"/>
+	<Problem File="OMPL_RRTStar_rewirefact_0.6.xml" PlannerAlias="RRTStar_RewFact-0.6"/>
+	<Parameter Name="maxMem" Value="7000.0" />
+	<Parameter Name="runCount" Value="10" />
+	<Parameter Name="displayProgress" Value="false" />
+	<Parameter Name="filename" Value="resultAllTogether.log" />
+</Benchmark>

@@ -1,0 +1,10 @@
+<Benchmark Name="OMPL_PRM">
+	<Problem File="OMPL_PRMrnd.xml" PlannerAlias="PRMrnd"/>
+	<Problem File="OMPL_PRMhal.xml" PlannerAlias="PRMhal"/>
+	<Problem File="OMPL_PRMsdk.xml" PlannerAlias="PRMsdk"/>
+	<Problem File="OMPL_PRMgaussian.xml" PlannerAlias="PRMgaussian"/>
+	<Parameter Name="maxMem" Value="7000.0" />
+	<Parameter Name="runCount" Value="10" />
+	<Parameter Name="displayProgress" Value="false" />
+	<Parameter Name="filename" Value="resultPRM.log" />
+</Benchmark>

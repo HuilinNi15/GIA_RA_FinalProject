@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Problem name="OMPL_RRTconnect_chess_rob1">
+	<Obstacle obstacle="obstacles/chess/chessboard.urdf" scale="1.0">
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.02" Y="-0.35" X="0.15" />
+	</Obstacle>
+	
+	<Obstacle obstacle="obstacles/chess/pawnW1.urdf" scale="0.7">
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.02" Y="-0.45" X="0.237" />
+	</Obstacle>
+	<Obstacle obstacle="obstacles/chess/horseB1.urdf" scale="1.0">
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="0.035" Y="-0.45" X="0.172" />
+	</Obstacle>
+	
+	<Robot robot="robots/ur3_robotniq_A.urdf" scale="1.0">
+		<Home TH="1.570796327" WZ="1.0" WY="0.0" WX="0.0" Z="-0.04" Y="0.0" X="0.37" />
+		<ViewLink name="tool0" />
+	</Robot>
+	<Controls robot="controls/ur3_robotniq_1.cntr" />
+	<Planner>
+		<Parameters>
+			<Name>omplRRTConnect</Name>
+			<Parameter name="Range">0.5</Parameter>
+			<Parameter name="_Cspace Drawn">0</Parameter>
+			<Parameter name="_Incremental (0/1)">0</Parameter>
+			<Parameter name="_Max Planning Time">50</Parameter>
+			<Parameter name="_Path Drawn (0/1)">1</Parameter>
+			<Parameter name="_Simplify Solution">2</Parameter>
+			<Parameter name="_Speed Factor">1</Parameter>
+		</Parameters>
+		<Queries>
+			<Query> <!-- Move A3 a C1 -->
+				<Init dim="7">0.854194 0.352 0.610722 0.290194 0.258806 0.354028 0.67609</Init>
+				<Goal dim="7">0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</Goal>
+			</Query> 
+			<Query> <!-- Baixa Pick C1 -->	
+				<Init dim="7">0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</Init>
+				<Goal dim="7">0.907306 0.342833 0.683278 0.208528 0.267500 0.411139 0.538</Goal>
+			</Query>
+			<Query> <!-- Puja Pick C1 -->
+				<Init dim="7">0.907306 0.342833 0.683278 0.208528 0.267500 0.411139 0.538</Init>
+				<Goal dim="7">0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</Goal>
+			</Query>
+			<Query> <!-- Move C1 a C2-->	
+				<Init dim="7">0.907306 0.342806 0.630528 0.261306 0.267556 0.410972 0.538</Init>
+				<Goal dim="7">0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Goal>
+			</Query>
+			<Query>	<!-- Baixa Place C2 -->	
+				<Init dim="7">0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Init>
+				<Goal dim="7">0.897222 0.317333 0.720917 0.202389 0.266750 0.403278 0.538</Goal>
+			</Query>
+			<Query>	<!-- Puja Place C2 -->
+				<Init dim="7">0.897222 0.317333 0.720917 0.202389 0.266750 0.403278 0.538</Init>
+				<Goal dim="7">0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Goal>
+			</Query>
+			<Query> <!-- Move C2 a B1 -->	
+				<Init dim="7">0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Init>
+				<Goal dim="7">0.884861 0.341500 0.642500 0.239722 0.274444 0.387556 0.538</Goal>
+			</Query>
+			<Query> <!-- Baixa Pick B1-->
+				<Init dim="7">0.884861 0.341500 0.642500 0.239722 0.274444 0.387556 0.538</Init>
+				<Goal dim="7">0.884861 0.343917 0.687111 0.192667 0.274389 0.387722 0.538</Goal>
+			</Query>
+			<Query> <!-- Puja Pick B1-->
+				<Init dim="7">0.884861 0.343917 0.687111 0.192667 0.274389 0.387722 0.538</Init>
+				<Goal dim="7">0.884861 0.341500 0.642500 0.239722 0.274444 0.387556 0.538</Goal>
+			</Query>	
+			<Query> <!-- Move B1 a A3-->	
+				<Init dim="7">0.884861 0.341500 0.642500 0.239722 0.274444 0.387556 0.538</Init>
+				<Goal dim="7">0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</Goal>
+			</Query>
+			<Query> <!-- Baixa Place A3-->
+				<Init dim="7">0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</Init>
+				<Goal dim="7">0.854194 0.348028 0.665528 0.239361 0.258806 0.354222 0.538</Goal>
+			</Query>
+			<Query> <!-- Puja Place A3-->
+				<Init dim="7">0.854194 0.348028 0.665528 0.239361 0.258806 0.354222 0.538</Init>
+				<Goal dim="7">0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</Goal>
+			</Query>	
+			<Query> <!-- Move A3 a D3-->	
+				<Init dim="7">0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.538</Init>
+				<Goal dim="7">0.908556 0.265056 0.743528 0.228083 0.265250 0.411056 0.538</Goal>
+			</Query>
+		</Queries>
+	</Planner>
+</Problem>

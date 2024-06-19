@@ -1,0 +1,10 @@
+<Benchmark Name="OMPL_RRTConnect">
+	<Problem File="OMPL_RRTconnect_2_2_range-0.02.xml" PlannerAlias="RRTConnect_0.02"/>
+	<Problem File="OMPL_RRTconnect_2_2_range-0.05.xml" PlannerAlias="RRTConnect_0.05"/>
+	<Problem File="OMPL_RRTconnect_2_2_range-0.1.xml" PlannerAlias="RRTConnect_0.1"/>
+	<Problem File="OMPL_RRTconnect_2_2_range-0.5.xml" PlannerAlias="RRTConnect_0.5"/>
+	<Parameter Name="maxMem" Value="7000.0" />
+	<Parameter Name="runCount" Value="10" />
+	<Parameter Name="displayProgress" Value="false" />
+	<Parameter Name="filename" Value="resultRRTConnect.log" />
+</Benchmark>
