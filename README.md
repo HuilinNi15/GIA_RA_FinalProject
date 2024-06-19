@@ -42,9 +42,9 @@ $ sudo apt-get upgrade
 <h4> To install the task_and_motion_planning github and its dependencies: </h4>
 
 1. Install the required dependencies for the FF server:
-   ~~~ 
+   ```
    $ sudo apt install flex bison libpugixml-dev
-   ~~~ 
+   ``` 
 2. Install Python3, required by the ktmpb package:
    ```
    $ sudo apt-get install python3-pip python3-yaml
@@ -76,16 +76,16 @@ $ sudo apt-get upgrade
    
 <h3> Part 2: Mobile Robotics with a Waffle_Pi </h3>
 
-<h4> Install ROS Noetic </h4>
-```
+Install ROS Noetic
+~~~
 $ sudo apt update
 $ sudo apt upgrade
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_noetic.sh
 $ chmod 755 ./install_ros_noetic.sh
 $ bash ./install_ros_noetic.sh
-```
+~~~ 
 
-<h4> Install Dependent ROS Packages </h4>
+Install Dependent ROS Packages
 ```
 $ sudo apt-get install ros-noetic-joy ros-noetic-teleop-twist-joy \
 ros-noetic-teleop-twist-keyboard ros-noetic-laser-proc \
@@ -97,14 +97,14 @@ ros-noetic-compressed-image-transport ros-noetic-rqt* ros-noetic-rviz \
 ros-noetic-gmapping ros-noetic-navigation ros-noetic-interactive-markers
 ```
 
-<h4> Install TurtleBot3 Packages </h4>
+Install TurtleBot3 Packages
 ```
 $ sudo apt install ros-noetic-dynamixel-sdk
 $ sudo apt install ros-noetic-turtlebot3-msgs
 $ sudo apt install ros-noetic-turtlebot3
 ```
 
-<h4> Install Simulation Package </h4>
+Install Simulation Package
 ```
 $ cd ~/catkin_ws/src/
 $ git clone -b kinetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
