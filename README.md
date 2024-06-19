@@ -122,10 +122,34 @@ $ cd ~/catkin_ws && catkin_make
 <!-- Part 1: Path Planning and Manipulation with an UR3a-->
 <h2 id="part-1"> 🦾 Part 1: Path Planning and Manipulation with an UR3a </h2>
 
+This part of the project focuses on programming a robot manipulator to execute certain tasks. We have modeled a chess-like scenario where the robot respects the turn-taking of the pieces (white-black) and moves the chess pieces according to their legal moves. Specifically, we have modeled the pawn, knight, and king. The steps involved are:
+
+1. **Task Design**: Design a couple of tasks that a robot manipulator (specifically the UR3e in our case) can execute. The tasks involve moving chess pieces according to the rules of chess.
+2. **PDDL Files Creation**: Create the domain and problem files (PDDL) associated with these tasks. We have created three problem files, each with a different scenario where the robot has to move the pieces from their original positions to their goal positions while respecting the turns of the pieces.
+3. **Planning Problem Solving**: Solve the task and motion planning problems associated with each problem file. The motion planning part needs to be addressed using different planners.
+4. **Simulation Comparison**: Compare the obtained solutions in simulation using The Kautham Project.
+5. **Benchmarking Study**: Conduct a benchmarking study with the planners used to evaluate their performance. We have used the [**Planner Arena**](https://plannerarena.org/) website to visualize the boxplots with the times of each planner. 
+
+In our specific implementation, we have modeled only basic movements. One team cannot "capture" the pieces of the other team, nor perform any special moves; only simple, legal moves are considered.
 
 <!-- Part 2: Mobile Robotics with a Waffle_Pi -->
 <h2 id="part-2"> 🤖 Part 2: Mobile Robotics with a Waffle_Pi </h2>
 
+This part of the project focuses on a navigation task for the robot. Examples of such tasks include:
+
+- Exploration of unknown areas
+- Following people with a camera
+- Searching for objects
+- etc.
+
+In our case, our Waffle Pi robot recognizes two different colors (yellow and red). The process involves:
+
+1. **Color Recognition**: The robot identifies colors using our custom color_viewer node, which detects the colors yellow and red.
+2. **Color Publishing**: The detected color is published, and the the color_mover node is subscribed to get this color.
+3. **Action Based on Color**: The color_mover node associates the given color with a specific action:
+   - If the color is **red**, the robot stops for a few seconds.
+   - If the color is **yellow**, the robot raises its arm (the driver).
+4. **Obstacle Avoidance**: The robot moves straight continuously until it needs to avoid an obstacle, using the move_base topic for navigation adjustments.
 
 <!-- Contributors -->
 <h2 id="contributors"> 👥 Contributors</h2>
