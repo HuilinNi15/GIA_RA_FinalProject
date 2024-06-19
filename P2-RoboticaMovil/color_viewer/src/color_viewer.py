@@ -16,24 +16,28 @@ class color_viewer:
     def __init__(self) -> None:
         rospy.loginfo("Started color viewer node")
 
-        self.colors = {"red":np.array([95, 55, 226]), "green":np.array([50, 181, 91]), "blue": np.array([250, 0, 0]), "yellow": np.array([36, 161, 183])} #bgr en cv2
-        self.map_colors = {None: 0, "red": 1, "green": 2, "blue": 3, "yellow": 4}
-        self.color_threshold = 75
-        self.pixel_count_threshold = 25000# 100000 # 1080 * 1920 // 10 ####################33 ajustar depen el tamany de la imatge
-        self.step = 2 
+        self.colors = {"red":np.array([95, 55, 226]), "green":np.array([50, 181, 91]), "yellow": np.array([36, 161, 183])} #bgr en cv2
+        self.map_colors = {None: 0, "red": 1, "green": 2, "yellow": 3}
+        self.color_threshold = 80
+        self.pixel_count_threshold = 500# 100000 # 1080 * 1920 // 10 ####################33 ajustar depen el tamany de la imatge
+        self.step = 2
+        self.step_x = 5
+        self.step_y = 5 
         self.bridge_object = CvBridge()
         
         # colors for HSV
         # definir a ma###############################
-        self.colors_hsv = {}
-        for color_str in self.colors:
+        # self.colors_hsv = {"red":(np.array([150, 170, 150]), np.array([180, 200, 255])), "green": (np.array([30, 170, 150]), np.array([80, 200, 200])), "yellow": (np.array([10, 170, 160]), np.array([40, 190, 230]))}
+        
+        """for color_str in self.colors:
             col = np.uint8([[self.colors[color_str]]])
             hsv_col = cv2.cvtColor(col,cv2.COLOR_BGR2HSV)
             upper_lim = hsv_col + 5
             lower_lim = hsv_col - 5
-            self.colors_hsv[color_str] = (lower_lim, upper_lim)
-        # self.sub = rospy.Subscriber("/camera/image", Image, callback=self.camera_callback)
-        self.sub = rospy.Subscriber("/camera/rgb/image_raw", Image, callback=self.camera_callback)
+            self.colors_hsv[color_str] = (lower_lim, upper_lim)"""
+            
+        self.sub = rospy.Subscriber("/camera/image", Image, callback=self.camera_callback)
+        # self.sub = rospy.Subscriber("/camera/rgb/image_raw", Image, callback=self.camera_callback)
 
         self.pub = rospy.Publisher('integer_topic', Int8, queue_size=10)
    
@@ -72,13 +76,13 @@ class color_viewer:
         rows_to_watch = height // 2
         cropped_image = self.image[(height)//2+descentre:(height)//2+(descentre+rows_to_watch), width//5:4*width//5] # podem pillar nomes la meitat amunt o avall tipo el terra o no
         # si = cropped_image[::self.step, ::self.step]
-        si = cropped_image[::, ::self.step]
+        si = cropped_image #[::self.step_x, ::self.step_y]
         rospy.loginfo(f"{self.image.shape} --> {cropped_image.shape}")
         return si
     def count_pixels(self, img):
         c = {color_str: 0 for color_str in self.colors}
         for color in self.colors_hsv:
-            c[color] = self.step*self.step*np.sum(cv2.inRange(img, self.colors_hsv[color][0], self.colors_hsv[color][1]))
+            c[color] = np.sum(cv2.inRange(img, self.colors_hsv[color][0], self.colors_hsv[color][1]))# *self.step_x*self.step_y
         
         rospy.loginfo("")
         rospy.loginfo(f"{c}")
@@ -104,8 +108,8 @@ class color_viewer:
         except CvBridgeError as e:
             print(e)
         
-        # self.check_colors()
         self.check_colors()
+        # self.check_colors_hsv()
         if self.color:
             rospy.loginfo(f"Found color {self.color} OuO") #, shape {self.image.size, self.image.shape}")
         else:
@@ -114,9 +118,9 @@ class color_viewer:
         msg = Int8()
         msg.data = self.map_colors[self.color]
         self.pub.publish(msg)
-        if self.color == "red":
+        """if self.color == "red":
             rospy.loginfo("detected red, closing eyes for 3 seconds")
-            rospy.sleep(3)
+            rospy.sleep(3)"""
         
 if __name__== "__main__":
     np.random.seed(373)
