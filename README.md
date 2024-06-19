@@ -1,6 +1,35 @@
 # GIA_RA_FinalProject
-## P1-Manipulacion
-### Packages needed
+
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents"> Table of Contents </h2>
+
+<details open="open">
+  <summary> Table of Contents </summary>
+  <ol>
+    <li><a href="#about-the-project"> About the project </a></li>
+    <li><a href="#prerequisites"> Prerequisites </a></li>
+    <li><a href="#part-1"> Part 1: Path Planning and Manipulation with an UR3a </a></li>
+    <li><a href="#part-2"> Part 2: Mobile Robotics with a Waffle_Pi </a></li>
+     <li><a href="#contributors"> Contributors </a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project"> :pencil: About The Project</h2>
+
+<p align="justify"> 
+  With this project we aim to ... 
+
+   This project consists in 2 parts: 
+   - Part 1: Path Planning and Manipulation with an UR3a
+   - Part 2: Mobile Robotics with a Waffle_Pi
+</p>
+
+
+<!-- Prerequisites -->
+<h2 id="prerequisites"> :fork_and_knife: Prerequisites </h2>
+
+<h3> Part 1: Path Planning and Manipulation with an UR3a </h3>
 ---
 To install The Kautham Project:
 ```
@@ -45,9 +74,9 @@ To install the task_and_motion_planning github and its dependencies:
    $ source devel/setup.bash
    ```
    
-## P2-RoboticaMovil
+<h3> Part 2: Mobile Robotics with a Waffle_Pi </h3>
 ---
-### Install ROS Noetic
+<h4> Install ROS Noetic </h4>
 ```
 $ sudo apt update
 $ sudo apt upgrade
@@ -56,7 +85,7 @@ $ chmod 755 ./install_ros_noetic.sh
 $ bash ./install_ros_noetic.sh
 ```
 
-### Install Dependent ROS Packages
+<h4> Install Dependent ROS Packages </h4>
 ```
 $ sudo apt-get install ros-noetic-joy ros-noetic-teleop-twist-joy \
 ros-noetic-teleop-twist-keyboard ros-noetic-laser-proc \
@@ -68,14 +97,14 @@ ros-noetic-compressed-image-transport ros-noetic-rqt* ros-noetic-rviz \
 ros-noetic-gmapping ros-noetic-navigation ros-noetic-interactive-markers
 ```
 
-### Install TurtleBot3 Packages
+<h4> Install TurtleBot3 Packages </h4>
 ```
 $ sudo apt install ros-noetic-dynamixel-sdk
 $ sudo apt install ros-noetic-turtlebot3-msgs
 $ sudo apt install ros-noetic-turtlebot3
 ```
 
-### Install Simulation Package
+<h4> Install Simulation Package </h4>
 ```
 $ cd ~/catkin_ws/src/
 $ git clone -b kinetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
@@ -90,8 +119,15 @@ $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 $ cd ~/catkin_ws && catkin_make
 ```
 
+<!-- Part 1: Path Planning and Manipulation with an UR3a-->
+<h2 id="part-1"> 🦾 Part 1: Path Planning and Manipulation with an UR3a </h2>
 
-## Contributors
+
+<!-- Part 2: Mobile Robotics with a Waffle_Pi -->
+<h2 id="part-2"> 🤖 Part 2: Mobile Robotics with a Waffle_Pi </h2>
+
+
+<!-- Contributors -->
 <h2 id="contributors"> 👥 Contributors</h2>
 
 * [**Huilin Ni**](https://github.com/HuilinNi15)
