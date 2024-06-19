@@ -31,7 +31,7 @@
 
 <h3> Part 1: Path Planning and Manipulation with an UR3a </h3>
 
-<h4> To install The Kautham Project: </h4>
+To install The Kautham Project:
 ```
 $ sudo add-apt-repository ppa:deb-rob/focal-robotics
 $ sudo apt-get update
