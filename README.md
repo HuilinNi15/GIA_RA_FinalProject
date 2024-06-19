@@ -10,6 +10,8 @@ $ sudo apt-get install kautham kautham-tools kautham-ros-osrf kautham-demos-osrf
 $ sudo apt-get upgrade
 ```
 
+To install the task_and_motion_planning github and its dependencies: 
+
 1. Install the required dependencies for the FF server:
    ```
    $ sudo apt install flex bison libpugixml-dev
