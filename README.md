@@ -89,3 +89,14 @@ $ cd ~/catkin_ws/src/
 $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 $ cd ~/catkin_ws && catkin_make
 ```
+
+
+## Contributors
+<h2 id="contributors"> 👥 Contributors</h2>
+
+* [**Huilin Ni**](https://github.com/HuilinNi15)
+* [**Sergi Guimerà Roig**](https://github.com/S3RXxX)
+* [**Núria Bosch Martínez**](https://github.com/nuriaboma)
+* [**Amadeo Huerta Moncho**](https://github.com/amadeohm)
+* [**Sandra Jiménez Vargas**](https://github.com/SandraJimenez231203)
+
