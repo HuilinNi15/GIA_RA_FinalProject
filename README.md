@@ -15,7 +15,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-<h2 id="about-the-project"> :pencil: About The Project</h2>
+<h2 id="about-the-project"> 📝 About The Project</h2>
 
 <p align="justify"> 
   With this project we aim to ... 
@@ -27,11 +27,11 @@
 
 
 <!-- Prerequisites -->
-<h2 id="prerequisites"> :fork_and_knife: Prerequisites </h2>
+<h2 id="prerequisites"> 🛠️ Prerequisites </h2>
 
 <h3> Part 1: Path Planning and Manipulation with an UR3a </h3>
----
-To install The Kautham Project:
+
+<h4> To install The Kautham Project: </h4>
 ```
 $ sudo add-apt-repository ppa:deb-rob/focal-robotics
 $ sudo apt-get update
@@ -39,7 +39,7 @@ $ sudo apt-get install kautham kautham-tools kautham-ros-osrf kautham-demos-osrf
 $ sudo apt-get upgrade
 ```
 
-To install the task_and_motion_planning github and its dependencies: 
+<h4> To install the task_and_motion_planning github and its dependencies: </h4>
 
 1. Install the required dependencies for the FF server:
    ```
@@ -75,7 +75,7 @@ To install the task_and_motion_planning github and its dependencies:
    ```
    
 <h3> Part 2: Mobile Robotics with a Waffle_Pi </h3>
----
+
 <h4> Install ROS Noetic </h4>
 ```
 $ sudo apt update
