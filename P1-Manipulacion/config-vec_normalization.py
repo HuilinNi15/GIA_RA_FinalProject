@@ -41,8 +41,13 @@ vectors = [
     ("CABALLO BLANCO Grasp Inicial", np.array([127.51, -54.71, 59.59, -93.83, -86.83, 307.52-360])),
 
     # Place (C2)
-    ("CABALLO BLANCO Region Final", np.array([142.99, -66.96, 59.86, -86.26, -83.95, 325.10-360])),
-    ("CABALLO BLANCO Grasp Final", np.array([147.00, -65.88, 79.12, -106.61, -83.97, 325.17-360])),
+    ("CABALLO BLANCO Region Final 1", np.array([142.99, -66.96, 59.86, -86.26, -83.95, 325.10-360])),
+    ("CABALLO BLANCO Grasp Final 1", np.array([147.00, -65.88, 79.12, -106.61, -83.97, 325.17-360])),
+
+    ("CABALLO BLANCO Region Final 2", np.array([142.99, -66.96, 59.86, -86.26, -83.95, 325.10-360])),
+    ("CABALLO BLANCO Grasp Final 2", np.array([143.00, -65.76, 79.53, -107.14, -83.97, 325.18-360])),
+
+    # ("CABALLO BLANCO Grasp Final 2", np.array([147.76, -58.10, 64.78, -96.75, -89.74, 326.51-360])),
 
     # ----------------------------------------------------------------------------------
 
