@@ -15,9 +15,8 @@
         <!-- The Graspcontrols will be to be changed accordingly the new intial object poses-->
         <!-- (be careful: if the objects change their initial room then also the pddl problem file has to be set accordingly) -->
         <Initial>
-            <Object name="PEON_BLANCO" kthname="pawnW1"> 0.675 -0.45 0.04 0 0 1 0 </Object>
-            <Object name="CABALLO_NEGRO" kthname="horseB1"> 0.1 -0.363 0.04 0 0 1 0 </Object>
-            
+            <Object name="PEON_BLANCO" kthname="pawnW1"> 0.237 -0.45 0.02 0 0 1 0 </Object>
+            <Object name="CABALLO_NEGRO" kthname="horseB1"> 0.172 -0.45 0.035 0 0 1 0 </Object>            
             
             <Robot name="ur3_robotniq_A" controlfile="controls/ur3_robotniq_1.cntr"> 0.854194 0.352000 0.610722 0.290194 0.258806 0.354028 0.67609 </Robot>
         </Initial>
@@ -52,7 +51,7 @@
             <Obj>pawnW1</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Regioncontrols>
-            <Graspcontrols grasp="topgrasp">0.908333 0.317000 0.719778 0.203861 0.266750 0.403250 0.538</Graspcontrols>
+            <Graspcontrols grasp="topgrasp">0.897222 0.317333 0.720917 0.202389 0.266750 0.403278 0.538</Graspcontrols>
         </Place>
         
         <Move robot="UR3A" region_from="C2" region_to="B1">

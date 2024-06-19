@@ -126,7 +126,7 @@
             <Obj>horseW1</Obj>
             <Cont>controls/ur3_robotniq_1.cntr</Cont>
             <Regioncontrols>0.897194 0.314000 0.666278 0.260389 0.266806 0.403056 0.538</Regioncontrols>
-            <Graspcontrols grasp="topgrasp">0.908333 0.317000 0.719778 0.203861 0.266750 0.403250 0.538</Graspcontrols>
+            <Graspcontrols grasp="topgrasp">0.897222 0.317333 0.720917 0.202389 0.266750 0.403278 0.538</Graspcontrols>
         </Place>
         
         <!-- Move action for EMPTY from c2 to a3 -->
