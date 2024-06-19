@@ -15,7 +15,7 @@ class color_mover:
     def __init__(self) -> None:
         rospy.loginfo("Started color mover node")
         self.l = 0.3
-        self.map_colors = {0: None, 1: "red", 2: "green", 3: "blue", 4: "yellow"}
+        self.map_colors = {0: None, 1: "red", 2: "green", 3: "yellow"}
         
         self.sub = rospy.Subscriber('integer_topic', Int8, callback=self.color_callback, queue_size=1)
         self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
@@ -80,7 +80,6 @@ class color_mover:
         color_int = messages.data
         self.color = self.map_colors[color_int]
         rospy.loginfo(f"Received color {self.color}")
-        rospy.loginfo(f"l value: {self.l}")
 
         if self.color is None:
             self.move_to_goal(self.l, 0, wait=False)  
@@ -89,9 +88,7 @@ class color_mover:
             self.stop_robot(3)
             self.move_to_goal(self.l, 0, wait=True)
         elif self.color == "green":
-            self.move_to_goal(0, self.l, wait=True)
-        elif self.color == "blue":
-            self.move_to_goal(0, -self.l, wait=True)
+            self.move_to_goal(-self.l, 0, wait=True)
         elif self.color == "yellow":
             # self.move_arm([])
             # self.move_to_goal(self.l, self.l, wait=True)
@@ -100,6 +97,7 @@ class color_mover:
             rospy.loginfo("NOT IMPLEMENTED YET")  # Placeholder for arm movement
         else:
             rospy.logerr(f"Unsupported color action for {self.color}")
+            
 
 if __name__== "__main__":
     rospy.init_node("color_mover_node")
