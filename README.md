@@ -42,9 +42,9 @@ $ sudo apt-get upgrade
 <h4> To install the task_and_motion_planning github and its dependencies: </h4>
 
 1. Install the required dependencies for the FF server:
-   ```
+   ~~~ 
    $ sudo apt install flex bison libpugixml-dev
-   ```
+   ~~~ 
 2. Install Python3, required by the ktmpb package:
    ```
    $ sudo apt-get install python3-pip python3-yaml
