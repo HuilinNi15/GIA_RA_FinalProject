@@ -41,7 +41,7 @@ $ sudo apt-get upgrade
    ```
    $ catkin build
    $ source devel/setup.bash
-
+   ```
    
 ## P2-RoboticaMovil
 ---
