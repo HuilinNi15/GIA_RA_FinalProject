@@ -142,13 +142,14 @@ This part of the project focuses on a navigation task for the robot. Examples of
 - Searching for objects
 - etc.
 
-In our case, our Waffle Pi robot recognizes two different colors (yellow and red). The process involves:
+In our case, our Waffle Pi robot recognizes three different colors (yellow, green and red). The process involves:
 
 1. **Color Recognition**: The robot identifies colors using our custom color_viewer node, which detects the colors yellow and red.
 2. **Color Publishing**: The detected color is published, and the the color_mover node is subscribed to get this color.
 3. **Action Based on Color**: The color_mover node associates the given color with a specific action:
-   - If the color is **red**, the robot stops for a few seconds.
    - If the color is **yellow**, the robot raises its arm (the driver).
+   - If the color is **green**, the robot spins with a certain angular velocity during a certain time. 
+   - If the color is **red**, the robot stops for 10 seconds.
 4. **Obstacle Avoidance**: The robot moves straight continuously until it needs to avoid an obstacle, using the move_base topic for navigation adjustments.
 
 <!-- Contributors -->
