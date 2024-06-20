@@ -18,11 +18,9 @@
 <h2 id="about-the-project"> 📝 About The Project</h2>
 
 <p align="justify"> 
-  With this project we aim to ... 
-
    This project consists in 2 parts: 
-   - Part 1: Path Planning and Manipulation with an UR3a
-   - Part 2: Mobile Robotics with a Waffle_Pi
+   - **Part 1**: Path Planning and Manipulation with an UR3a
+   - **Part 2**: Mobile Robotics with a Waffle_Pi
 </p>
 
 
@@ -152,6 +150,32 @@ In our case, our Waffle Pi robot recognizes three different colors (yellow, gree
    - If the color is **red**, the robot stops for 10 seconds.
 4. **Obstacle Avoidance**: The robot moves straight continuously until it needs to avoid an obstacle, using the move_base topic for navigation adjustments.
 
+To execute our code, you need to execute the following commands: 
+
+If you want to execute it in simulation: 
+```
+T1: $ roscore
+T2: $ roslaunch turtlebot3_gazebo turtlebot3_world.launch 
+T3: $ roslaunch turtlebot3_slam turtlebot3_slam.launch
+T4: $ roslaunch turtlebot3_navigation move_base.launch
+T5: $ rosrun color_viewer color_viewer.py
+T6: $ rosrun color_mover color_mover.py
+```
+
+If you want to execute the code with a Waffle Pi robot: 
+```
+T1: roscore
+T2: ssh ubuntu@<waffle_pi_IP>
+    roslaunch turtlebot3_bringup turtlebot3_robot.launch
+T3: ssh ubuntu@<waffle_pi_IP>
+    roslaunch turtlebot3_bringup turtlebot3_rpicamera.launch
+T4: $ roslaunch turtlebot3_slam turtlebot3_slam.launch
+T5: $ roslaunch turtlebot3_navigation move_base.launch
+T6: $ rosrun color_viewer color_viewer.py
+T7: $ rosrun color_mover color_mover.py
+```
+Make sure that the PC is connected correctly to the robot's IP and that both of them are connected to the same network.
+
 <!-- Contributors -->
 <h2 id="contributors"> 👥 Contributors</h2>
 
@@ -160,4 +184,3 @@ In our case, our Waffle Pi robot recognizes three different colors (yellow, gree
 * [**Núria Bosch Martínez**](https://github.com/nuriaboma)
 * [**Amadeo Huerta Moncho**](https://github.com/amadeohm)
 * [**Sandra Jiménez Vargas**](https://github.com/SandraJimenez231203)
-
