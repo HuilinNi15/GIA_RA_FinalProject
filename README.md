@@ -17,12 +17,9 @@
 <!-- ABOUT THE PROJECT -->
 <h2 id="about-the-project"> 📝 About The Project</h2>
 
-<p align="justify"> 
-   This project consists in 2 parts:
-    1. **Part 1** : Path Planning and Manipulation with an UR3a
-    2. **Part 2** : Mobile Robotics with a Waffle_Pi
-</p>
-
+This project consists in 2 parts: 
+- **Part 1** : Path Planning and Manipulation with an UR3a 
+- **Part 2** : Mobile Robotics with a Waffle_Pi
 
 <!-- Prerequisites -->
 <h2 id="prerequisites"> 🛠️ Prerequisites </h2>
