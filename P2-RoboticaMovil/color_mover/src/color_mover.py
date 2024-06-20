@@ -53,6 +53,12 @@ class color_mover:
         twist.angular.z = 0
         self.cmd_vel_pub.publish(twist)
         rospy.sleep(duration)
+    def do_spin(self, t=1, w=2.5):
+        twist = Twist()
+        twist.linear.x = 0.001
+        twist.angular.z = w
+        self.cmd_vel_pub.publish(twist)
+        rospy.sleep(t)
     
     def clear_unknown_space(self):
         rospy.wait_for_service('clear_unknown_space')
@@ -91,7 +97,9 @@ class color_mover:
             self.stop_robot(10)
             self.move_to_goal(self.l/3, 0, wait=True)
         elif self.color == "green":
-            self.move_to_goal(-self.l, 0.05, wait=True)
+            self.do_spin(t=1)
+            self.stop_robot(3)
+            self.move_to_goal(self.l/3, 0, wait=True)
         elif self.color == "yellow":
             self.move_arm([0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, -0.5, 0.3])
             self.move_to_goal(self.l, 0, wait=False)
