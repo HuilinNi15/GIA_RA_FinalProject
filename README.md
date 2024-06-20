@@ -19,8 +19,8 @@
 
 <p align="justify"> 
    This project consists in 2 parts:
-    1. **Part 1**: Path Planning and Manipulation with an UR3a
-    2. **Part 2**: Mobile Robotics with a Waffle_Pi
+    1. **Part 1** : Path Planning and Manipulation with an UR3a
+    2. **Part 2** : Mobile Robotics with a Waffle_Pi
 </p>
 
 
